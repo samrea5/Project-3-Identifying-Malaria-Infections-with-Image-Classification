@@ -10,17 +10,23 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r, message=FALSE}
-require(R.matlab)
+#loading the required libraries
+
 library(tidyverse)
 library(keras)
 library(tensorflow)
 library(tfdatasets)
+
 #Run install_tensorflow() if this is your first time using the package
 ```
 
 ```{r}
+#deciding the batch and image scaling sizes
+
 image_size <- c(256, 256)
 batch_size <- 32
+
+#loading in the training and testing datasets from the downloaded directory, setting the validation split at 0.2
 
 train_ds <- image_dataset_from_directory(
   "cell_images",
@@ -43,6 +49,7 @@ val_ds <- image_dataset_from_directory(
 
 
 ```{r}
+#Verifying that the data is in the right file type
 batch <- train_ds %>%
   as_iterator() %>%
   iter_next()
@@ -51,6 +58,7 @@ str(batch)
 ```
 
 ```{r}
+#defining the function that creates the model, this is based on a model function that can be found in our resources
 make_model <- function(input_shape, num_classes) {
 
   inputs <- layer_input(shape = input_shape)
@@ -107,6 +115,7 @@ make_model <- function(input_shape, num_classes) {
   return(keras_model(inputs, outputs))
 }
 
+#actually assigning the model with our specifications
 model <- make_model(input_shape = c(image_size, 3), num_classes = 2)
 
 ```
@@ -114,6 +123,7 @@ model <- make_model(input_shape = c(image_size, 3), num_classes = 2)
 
 
 ```{r}
+#number of epochs to run the model for
 epochs <- 25
 
 callbacks <- list(callback_model_checkpoint("save_at_{epoch}.keras"))
@@ -122,13 +132,17 @@ model %>% compile(
   loss = "binary_crossentropy",
   metrics = list("accuracy"),
 )
+#running the model and testing it
 history <- model %>% fit(
     train_ds,
     epochs = epochs,
     callbacks = callbacks,
     validation_data = val_ds,
 )
+#final model plot
 plot(history)
+
+savePlot("malaria_graph.png", type = "png")
 ```
 
 
