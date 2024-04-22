@@ -19,6 +19,19 @@ This github is divided into three sections; Data, Scripts, Output. In the data f
 ### Reproducing Results
 The reproduction of our study is very straight forward and simple. First access the data through the link in the data folder. This will lead you to a kaggle page where you can download the data. If you want the primary source for the data feel free to access it on the NIH website. This data needs to be saved to the same loaction as the R project. Once the data is downloaded unzip the file in the desired location. Once the file is unzipped download the R scripts needed to build and analyse the predicitive model. Make sure the file paths have been correctly modified to access the data how you have it organized our your computer. Once this script is run the output will be the results of the model building and testing. This should closely match the results produced in the Github. 
 
+## References
+[1] “NLM - Malaria Data.” [Online]. Available: https://lhncbc.nlm.nih.gov/LHC-research/LHC-projects/image-processing/malaria-datasheet.html
+
+[2] “TensorFlow for R - Image classification from scratch.” Accessed: Apr. 12, 2024. [Online]. Available: https://tensorflow.rstudio.com/examples/image_classification_from_scrat
+
+[3] “Fact sheet about malaria.” Accessed: Apr. 21, 2024. [Online]. Available: https://www.who.int/news-room/fact-sheets/detail/malaria
+
+[4] P. J. Rosenthal, “How Do We Best Diagnose Malaria in Africa?,” Am J Trop Med Hyg, vol. 86, no. 2, pp. 192–193, Feb. 2012, doi: 10.4269/ajtmh.2012.11-0619.
+
+[5] J. B. Parr et al., “Analysis of false-negative rapid diagnostic tests for symptomatic malaria in the Democratic Republic of the Congo,” Sci Rep, vol. 11, no. 1, p. 6495, Mar. 2021, doi: 10.1038/s41598-021-85913-z.
+
+
+
 
 
 
