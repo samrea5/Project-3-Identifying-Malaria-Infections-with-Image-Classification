@@ -1,5 +1,5 @@
 ---
-title: "tess"
+title: "Image Classification"
 author: "Alex Smithgall"
 date: "2024-03-25"
 output: html_document
