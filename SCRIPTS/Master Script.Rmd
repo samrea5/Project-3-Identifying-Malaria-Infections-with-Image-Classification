@@ -15,6 +15,7 @@ library(tidyverse)
 library(keras)
 library(tensorflow)
 library(tfdatasets)
+#Run install_tensorflow() if this is your first time using the package
 ```
 
 ```{r}
